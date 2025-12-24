@@ -143,12 +143,40 @@
                 </div>
             </div>
         </div>
+
+        <div class="box__letter">
+            <div class="letter__border">
+                <div class="close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class="letter">
+                    <div class="title__letter"></div>
+                    <div class="content__letter">
+                        <div class="left">
+                            <img id="heart__letter" src="./images/heart_letter.png" alt="">
+                            <i class="fa-solid fa-heart heart heart_1" style="--t: 0s;"></i>
+                            <i class="fa-solid fa-heart heart heart_2" style="--t: 0.2s;"></i>
+                            <i class="fa-solid fa-heart heart heart_3" style="--t: 0.4s;"></i>
+                            <i class="fa-solid fa-heart heart heart_4" style="--t: 0.6s;"></i>
+                        </div>
+                        <div class="right">
+                            <img class="love__img" src="./images/love.png" width="150" alt="">
+                            <div class="text__letter">
+                                <p></p>
+                            </div>
+                            <img id="mewmew" src="./images/mewmew.gif" width="100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
 <script>
     // Text content
     let datetxt = "25 December";
+    let titleLetter = "Happy Birthday";
     let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will be together forever. You deserve the most tender things. I wish you a warm and happy birthday filled with smiles, hugs, and beautiful memories. Happy Birthday, my love!";
     let charArrDate = datetxt.split('');
     let charArrDateLetter = datatxtletter.split('');
@@ -158,7 +186,7 @@
     let currentIndexTitle = 0;
 
     let date__of__birth = document.querySelector(".date__of__birth span");
-    let text__letter = document.querySelector(".text__letter p");
+    let text__letter;
 
     // Clear any old value before typing animation begins
     if (date__of__birth) {
@@ -185,6 +213,11 @@
     var intervalTitle;
 
     $("#btn__letter").on("click", function () {
+        // Initialize text__letter element on first click
+        if (!text__letter) {
+            text__letter = document.querySelector(".text__letter p");
+        }
+        
         $(".box__letter").slideDown();
         setTimeout(function () {
             $(".letter__border").slideDown();
@@ -231,7 +264,9 @@
     $(".close").on("click", function () {
         clearInterval(intervalContent);
         document.querySelector(".title__letter").textContent = "";
-        text__letter.textContent = "";
+        if (text__letter) {
+            text__letter.textContent = "";
+        }
         currentIndexLetter = 0;
         currentIndexTitle = 0;
         document.querySelector("#heart__letter").classList.remove("animationOp");
