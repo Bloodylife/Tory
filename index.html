@@ -139,8 +139,7 @@
                 <div class="card2">
                     <div class="card2-content">
                         <h3>To You!</h3>
-                        <h2>Happy Birthday, my heart 🌙If I could gift you something beyond this day, I would give you the way you make the world feel gentler just by being in it. Loving you has taught me patience, hope, and the quiet beauty of belonging.You are the warmth in my cold moments, the calm in my chaos, the reason ordinary days feel like poetry.On your birthday, I wish you a life that loves you back the way you love others—softly, endlessly. May you always know how precious you are, not just today, but in every breath you take.I don’t just love you—I choose you, again and again, in every lifetime. Happy Birthday, my forever. 🌹💫
-                        </h2>
+                        <h2>Happy Birthday, my heart 🌙If I could gift you something beyond this day, I would give you the way you make the world feel gentler just by being in it. Loving you has taught me patience, hope, and the quiet beauty of belonging.You are the warmth in my cold moments, the calm in my chaos, the reason ordinary days feel like poetry.On your birthday, I wish you a life that loves you back the way you love others—softly, endlessly. May you always know how precious you are, not just today, but in every breath you take.I don’t just love you—I choose you, again and again, in every lifetime. Happy Birthday, my forever. 🌹💫</h2>
 
                         <div class="imageCute2">
                             <img src="cute2.png" alt="">
@@ -153,8 +152,9 @@
 
 </body>
 <script>
+    // Force the birthday date to show "25 December"
     let datetxt = "25 December";
-    let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more together.";
     let titleLetter = "To you";
     let charArrDate = datetxt.split('');
     let charArrDateLetter = datatxtletter.split('');
@@ -164,8 +164,14 @@
     let currentIndexTitle = 0;
     let date__of__birth = document.querySelector(".date__of__birth span");
     let text__letter = document.querySelector(".text__letter p");
+
+    // Clear any old value before typing animation begins
+    if (date__of__birth) {
+        date__of__birth.textContent = "";
+    }
+
     setTimeout(function () {
-        timeDatetxt = setInterval(function () {
+        let timeDatetxt = setInterval(function () {
             if (currentIndex < charArrDate.length) {
                 date__of__birth.textContent += charArrDate[currentIndex];
                 currentIndex++;
